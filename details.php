@@ -54,6 +54,7 @@ $user = $stmt->fetch();
         <?php endif; ?>
       </div>
     </div>
+    <a href='http://localhost/U4-W1-D3-BE/' class='btn btn-info'>Form/Home</a> 
   </div>
 </body>
 </html>

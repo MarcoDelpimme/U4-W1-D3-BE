@@ -11,6 +11,15 @@
 
 
 <div class="container mt-5">
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <form class="d-flex" role="search" action="process_search.php" method="get">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_query">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
     <form class="text-center" action="process_form.php" method="post">
         <h1>ADD USER TO LIST</h1>
         <div class="mb-3">

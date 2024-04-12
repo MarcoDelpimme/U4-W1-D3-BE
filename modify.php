@@ -1,3 +1,33 @@
+<?php 
+
+$host = 'localhost';
+$db   = 'dbtestusers';
+$user = 'root';
+$pass = '';
+
+$dsn = "mysql:host=$host;dbname=$db";
+
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+
+$pdo = new PDO($dsn, $user, $pass, $options);
+
+$id = $_GET['id'];
+    
+
+$stmt = $pdo->prepare("SELECT * FROM userlist WHERE id = ?");
+$stmt->execute([$id]);
+$user = $stmt->fetch();
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,22 +40,22 @@
 
 
 <div class="container mt-5">
-    <form class="text-center">
-        <h1>ADD USER TO LIST</h1>
+    <form class="text-center" method="post" action="http://localhost/U4-W1-D3-BE/edit_form.php?id=<?= $id ?>">
+        <h1>EDIT USER INFO</h1>
       <div class="mb-3">
         <label for="exampleInputName1" class="form-label">Name </label>
-        <input type="name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp">
+        <input type="name" name="name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp">
      
       </div>
       <div class="mb-3">
         <label for="exampleInputSurname1" class="form-label">Surname</label>
-        <input type="surname" class="form-control" id="exampleInputSurname1">
+        <input type="surname" name="surname" class="form-control" id="exampleInputSurname1">
       </div>
       <div class="mb-3">
         <label for="exampleInputAge1" class="form-label">Age</label>
-        <input type="age" class="form-control" id="exampleInputAge1">
+        <input type="number" name="age" class="form-control" id="exampleInputAge1">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">EDIT</button>
     </form>
     <div class="mt-3"><a href="http://localhost/U4-W1-D3-BE/userlist.php"><button class="btn btn-info">Show user LIST</button></a></div>
 </div>
