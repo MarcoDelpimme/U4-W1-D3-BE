@@ -80,7 +80,7 @@ $stmt->execute();
        
           
          ?>
-          
+        </table>  
        
        <?php
 if ($totalResults > $resultsPerPage) {
